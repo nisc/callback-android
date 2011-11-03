@@ -1724,9 +1724,9 @@ public class DroidGap extends PhonegapActivity {
     public void addWhiteListEntry(String origin, boolean subdomains) {
       try {
         // Unlimited access to network resources
-        if(origin.compareTo("*") == 0) {
+        if(origin.compareTo("*") == 0 || origin.compareTo(".*") == 0) {
             LOG.d(TAG, "Unlimited access to network resources");
-            whiteList.add(Pattern.compile("*"));
+            whiteList.add(Pattern.compile(".*"));
         } else { // specific access
           // check if subdomains should be included
           // TODO: we should not add more domains if * has already been added
